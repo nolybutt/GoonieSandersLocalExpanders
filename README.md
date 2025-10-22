@@ -16,7 +16,7 @@ Brothers, sisters, and assorted goons: for far too long the working computers of
 
 ## How To Use It On The Floor
 1. Plop down a ComputerCraft computer or turtle.
-2. Run the helper right from the mounted folder: `shell.run("/goonie/localscripts.lua")`.
+2. Run `goonie` (auto-installed under `/rom/programs`) to launch the helper immediately.
 3. Choose from the list, let the API fetch it, and watch the scripts seize the means of execution.
 
 Want to skip the helper? Access everything manually with plain shell commands like `fs.list("/goonie")`, `cp /goonie/myScript.lua myScript.lua`, or even `shell.run("/goonie/myScript.lua")`—they all hit the same mounted folder the helper uses.
