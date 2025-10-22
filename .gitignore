@@ -1,0 +1,32 @@
+# Build outputs
+/build/
+/out/
+/bin/
+/run/
+
+# Gradle state
+/.gradle/
+gradle-app.setting
+
+# IDE and tooling
+.idea/
+/.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+
+# Java and Minecraft runtime artifacts
+*.class
+*.log
+logs/
+crash-reports/
+
+# ComputerCraft generated content
+config/ccscripts/*.lua
+
+# OS cruft
+.DS_Store
+Thumbs.db
