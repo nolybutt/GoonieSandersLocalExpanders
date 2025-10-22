@@ -1,13 +1,13 @@
 package com.nolybutt.GoonieSandersLocalExpanders;
 
-import dan200.computercraft.api.peripheral.PeripheralAPI;
+import dan200.computercraft.api.ComputerCraftAPI;
 import net.neoforged.fml.common.Mod;
 
 @Mod("GoonieSandersLocalExpanders")
 public class GoonieSandersLocalExpanders {
     public GoonieSandersLocalExpanders() {
-        PeripheralAPI.registerGlobalPeripheral("GoonieSandersLocalExpanders", new LocalScriptPeripheral());
-        System.out.println("[GoonieSandersLocalExpanders] Initialized and registered global peripheral!");
+        ComputerCraftAPI.registerAPIFactory(computer -> new LocalScriptApi());
+        System.out.println("[GoonieSandersLocalExpanders] Initialized local script API!");
     }
 }
 

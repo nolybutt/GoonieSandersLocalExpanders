@@ -1,7 +1,7 @@
-local p = peripheral.wrap("GoonieSandersLocalExpanders")
-if not p then error("Goonie Sanders Local Expanders peripheral not found!") end
+local api = _G.GoonieSandersLocalExpanders
+if not api then error("Goonie Sanders Local Expanders API not found!") end
 
-local scripts = p.listScripts()
+local scripts = api.listScripts()
 print("Available scripts:")
 for i, s in ipairs(scripts) do print(i .. ". " .. s) end
 
@@ -10,7 +10,7 @@ local choice = tonumber(read())
 local name = scripts[choice]
 if not name then error("Invalid choice") end
 
-local content = p.getScript(name)
+local content = api.getScript(name)
 fs.makeDir("/scripts")
 local f = fs.open("/scripts/" .. name, "w")
 f.write(content)

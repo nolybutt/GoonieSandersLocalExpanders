@@ -1,10 +1,15 @@
+
 plugins {
     id 'java'
-    id 'net.neoforged.gradle' version '6.0.18'
+    id 'net.neoforged.moddev' version '1.0.18'
 }
 
 group = 'com.nolybutt.GoonieSandersLocalExpanders'
 version = '1.0.0'
+
+base {
+    archivesName = 'GoonieSandersLocalExpanders'
+}
 
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -16,15 +21,14 @@ repositories {
 }
 
 dependencies {
-    implementation "net.neoforged:neoforge:21.1.62"
-    compileOnly fg.deobf("org.squiddev:cc-tweaked-1.21.1:1.113.0")
+    compileOnly("cc.tweaked:cc-tweaked-1.21.1-core-api:1.116.1")
+    compileOnly("cc.tweaked:cc-tweaked-1.21.1-forge-api:1.116.1")
 }
 
-minecraft {
-    mappings channel: 'official', version: '1.21.1'
+neoForge {
+    version = "21.1.62"
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
-
