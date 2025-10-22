@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "GoonieSandersLocalExpanders"
+version = "1.0.0"
+displayName = "Codex Loader"
+authors = "Nolynn"
+description = '''
+Allows CC:Tweaked computers to access locally stored Lua scripts
+from /config/ccscripts without needing Pastebin or HTTP.
+'''
+
+[[dependencies.GoonieSandersLocalExpanders]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.GoonieSandersLocalExpanders]]
+modId = "computercraft"
+mandatory = false
+versionRange = "[1.113.0,)"
+ordering = "AFTER"
+side = "BOTH"
+

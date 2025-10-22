@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.gradle' version '6.0.18'
+}
+
+group = 'com.nolybutt.GoonieSandersLocalExpanders'
+version = '1.0.0'
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://maven.squiddev.cc" } // CC:Tweaked
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:21.1.62"
+    compileOnly fg.deobf("org.squiddev:cc-tweaked-1.21.1:1.113.0")
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.21.1'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
