@@ -1,3 +1,5 @@
+![Demo](berniesanders.gif)
+
 # Goonie Sanders Local Expanders
 
 Brothers, sisters, and assorted goons: for far too long the working computers of ComputerCraft have been denied unfettered access to the scripts they already wrote on their home machines. I am once again asking you to load your Lua from the local filesystem—only this time, I brought a mod to make it painless.
