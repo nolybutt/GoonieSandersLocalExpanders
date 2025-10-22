@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-The NeoForge mod lives in `src/main/java/com/nolybutt/GoonieSandersLocalExpanders`, with the entrypoint `GoonieSandersLocalExpanders.java` and the ComputerCraft API surface in `LocalScriptApi.java`. Resources such as `mods.toml` and `pack.mcmeta` are under `src/main/resources`. Lua helper automation for in-game use ships from `in_game_script/`, while local ComputerCraft script payloads are stored (and generated at runtime) in `config/ccscripts/`. Keep new assets alongside their peers and avoid creating parallel package trees.
+The NeoForge mod lives in `src/main/java/com/nolybutt/GoonieSandersLocalExpanders`, with the entrypoint `GoonieSandersLocalExpanders.java` and the ComputerCraft API surface in `LocalScriptApi.java`. Resources such as `neoforge.mods.toml` and `pack.mcmeta` are under `src/main/resources`. Lua helper automation for in-game use ships from `in_game_script/`, while local ComputerCraft script payloads are stored (and generated at runtime) in `config/ccscripts/`. Keep new assets alongside their peers and avoid creating parallel package trees.
 
 ## Build, Test, and Development Commands
 Use Gradle for all lifecycle tasks. Typical flows:
