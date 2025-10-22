@@ -5,7 +5,7 @@ license = "MIT"
 [[mods]]
 modId = "GoonieSandersLocalExpanders"
 version = "1.0.0"
-displayName = "Codex Loader"
+displayName = "Goonie Sanders Local Expanders"
 authors = "Nolynn"
 description = '''
 Allows CC:Tweaked computers to access locally stored Lua scripts

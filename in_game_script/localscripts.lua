@@ -1,5 +1,5 @@
 local p = peripheral.wrap("GoonieSandersLocalExpanders")
-if not p then error("Codex Loader peripheral not found!") end
+if not p then error("Goonie Sanders Local Expanders peripheral not found!") end
 
 local scripts = p.listScripts()
 print("Available scripts:")
