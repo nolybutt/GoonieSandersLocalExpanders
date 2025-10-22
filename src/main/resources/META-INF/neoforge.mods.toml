@@ -3,7 +3,7 @@ loaderVersion = "[4,)"
 license = "MIT"
 
 [[mods]]
-modId = "GoonieSandersLocalExpanders"
+modId = "gooniesanderslocalexpanders"
 version = "1.0.0"
 displayName = "Goonie Sanders Local Expanders"
 authors = "Nolynn"
@@ -12,14 +12,14 @@ Allows CC:Tweaked computers to access locally stored Lua scripts
 from /config/ccscripts without needing Pastebin or HTTP.
 '''
 
-[[dependencies.GoonieSandersLocalExpanders]]
+[[dependencies.gooniesanderslocalexpanders]]
 modId = "neoforge"
 type = "required"
 versionRange = "[21,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.GoonieSandersLocalExpanders]]
+[[dependencies.gooniesanderslocalexpanders]]
 modId = "computercraft"
 mandatory = false
 versionRange = "[1.116.1,)"

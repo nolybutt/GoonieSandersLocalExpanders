@@ -13,7 +13,7 @@ Use Gradle for all lifecycle tasks. Typical flows:
 When adding new commands, document them here so other contributors stay aligned.
 
 ## Coding Style & Naming Conventions
-Target Java 21 (configured via the Gradle toolchain). Prefer standard NeoForge/Java conventions: 4-space indentation, PascalCase for classes, camelCase for methods and fields, and snake_case only for Lua globals. Keep all log tags and identifiers aligned with the mod id `GoonieSandersLocalExpanders`. If you add formatting automation, surface the configuration in this section.
+Target Java 21 (configured via the Gradle toolchain). Prefer standard NeoForge/Java conventions: 4-space indentation, PascalCase for classes, camelCase for methods and fields, and snake_case only for Lua globals. Keep all log tags aligned with the mod id `gooniesanderslocalexpanders` (while the Lua global stays `GoonieSandersLocalExpanders`). If you add formatting automation, surface the configuration in this section.
 
 ## Testing Guidelines
 Add JVM tests under `src/test/java` using JUnit 5 to cover API behavior and file handling. Lua workflows should be validated via minimal mocks placed in `in_game_script/` or in-world sanity runs. When a feature touches file IO, include at least one test that exercises missing/malformed script scenarios.
