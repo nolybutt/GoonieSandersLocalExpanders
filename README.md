@@ -1,5 +1,7 @@
 # Goonie Sanders Local Expanders
 
+<div class="tenor-gif-embed" data-postid="22039812" data-share-method="host" data-aspect-ratio="1.26482" data-width="100%"><a href="https://tenor.com/view/bernie-sanders-financial-support-gif-22039812">Bernie Sanders Financial Support GIF</a>from <a href="https://tenor.com/search/bernie+sanders-gifs">Bernie Sanders GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
 Brothers, sisters, and assorted goons: for far too long the working computers of ComputerCraft have been denied unfettered access to the scripts they already wrote on their home machines. I am once again asking you to load your Lua from the local filesystem—only this time, I brought a mod to make it painless.
 
 ## What This Wild Thing Does
