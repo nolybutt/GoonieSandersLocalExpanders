@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-The NeoForge mod lives in `src/main/java/com/nolybutt/GoonieSandersLocalExpanders`, with the entrypoint `GoonieSandersLocalExpanders.java` and the ComputerCraft API surface in `LocalScriptApi.java`. Resources such as `neoforge.mods.toml`, the bundled helper (`assets/gooniesanderslocalexpanders/localscripts.lua`), and `pack.mcmeta` are under `src/main/resources`. Lua helper automation for in-game use ships from `in_game_script/`, while local ComputerCraft script payloads are stored (and generated at runtime) in `config/ccscripts/`. Keep new assets alongside their peers and avoid creating parallel package trees.
+The NeoForge mod lives in `src/main/java/com/nolybutt/GoonieSandersLocalExpanders`, with the entrypoint `GoonieSandersLocalExpanders.java` and the ComputerCraft API surface in `LocalScriptApi.java`. Resources such as `neoforge.mods.toml`, the bundled helper (`assets/gooniesanderslocalexpanders/localscripts.lua`), the shell entry point (`assets/gooniesanderslocalexpanders/programs/goonie.lua`), and `pack.mcmeta` live under `src/main/resources`. Lua helper automation for in-game use ships from `in_game_script/`, while local ComputerCraft script payloads are stored (and generated at runtime) in `config/ccscripts/`. Keep new assets alongside their peers and avoid creating parallel package trees.
 
 ## Build, Test, and Development Commands
 Use Gradle for all lifecycle tasks. Typical flows:
@@ -22,4 +22,4 @@ Add JVM tests under `src/test/java` using JUnit 5 to cover API behavior and file
 Craft commit messages in the form `feat: summary`, `fix: summary`, or `chore: summary` so history stays scannable. Pull requests should describe the mods touched, list validation steps (e.g., `.\gradlew build`), and attach screenshots or logs for in-game changes when useful. Reference related issues with `Closes #ID` and call out any follow-up work.
 
 ## Lua Script Workflow Notes
-Ensure scripts designed for the API ship in `config/ccscripts` with `.lua` extensions. The mod automatically drops `localscripts.lua` into that folder and mounts it (plus the rest of the directory) inside computers at `/goonie`; keep that behaviour intact when extending functionality.
+Ensure scripts designed for the API ship in `config/ccscripts` with `.lua` extensions. The mod automatically drops `localscripts.lua` into that folder, mounts it (plus the rest of the directory) inside computers at `/goonie`, and exposes the `goonie` command via a resource-mounted program; keep those behaviours intact when extending functionality.

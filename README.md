@@ -19,7 +19,7 @@ Brothers, sisters, and assorted goons: for far too long the working computers of
 2. Run the helper right from the mounted folder: `shell.run("/goonie/localscripts.lua")`.
 3. Choose from the list, let the API fetch it, and watch the scripts seize the means of execution.
 
-Want to skip the helper? Access everything manually with plain shell commands like `fs.list("/goonie")`, `cp /goonie/myScript.lua myScript.lua`, or even `shell.run("/goonie/myScript.lua")`.
+Want to skip the helper? Access everything manually with plain shell commands like `fs.list("/goonie")`, `cp /goonie/myScript.lua myScript.lua`, or even `shell.run("/goonie/myScript.lua")`—they all hit the same mounted folder the helper uses.
 
 ## F.A.Q. (Frequently Agitated Questions)
 - **Does this require network access?** Absolutely not. We’re keeping it local, comrades.

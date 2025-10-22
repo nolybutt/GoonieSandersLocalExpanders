@@ -1,5 +1,6 @@
 package com.nolybutt.GoonieSandersLocalExpanders;
 
+import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.lua.ILuaAPI;
 import dan200.computercraft.api.lua.IComputerSystem;
 import dan200.computercraft.api.lua.LuaException;
@@ -17,6 +18,8 @@ import java.util.stream.Stream;
  */
 public class LocalScriptApi implements ILuaAPI {
     private final IComputerSystem computer;
+    private String scriptMountId;
+    private String programMountId;
 
     public LocalScriptApi(IComputerSystem computer) {
         this.computer = computer;
@@ -35,15 +38,37 @@ public class LocalScriptApi implements ILuaAPI {
     @Override
     public void startup() {
         try {
-            computer.mountWritable(LocalScriptPaths.MOUNT_PATH, new LocalScriptMount(LocalScriptPaths.SCRIPT_DIR));
+            scriptMountId = computer.mountWritable(
+                LocalScriptPaths.SCRIPT_MOUNT_PATH,
+                new LocalScriptMount(LocalScriptPaths.SCRIPT_DIR)
+            );
         } catch (IOException e) {
             System.err.println("[GoonieSandersLocalExpanders] Failed to mount local scripts: " + e.getMessage());
+        }
+
+        var server = computer.getLevel().getServer();
+        if (server != null) {
+            var programMount = ComputerCraftAPI.createResourceMount(
+                server,
+                GoonieSandersLocalExpanders.MOD_ID,
+                LocalScriptPaths.PROGRAM_RESOURCE_SUBPATH
+            );
+            if (programMount != null) {
+                programMountId = computer.mount(LocalScriptPaths.PROGRAM_MOUNT_PATH, programMount);
+            }
         }
     }
 
     @Override
     public void shutdown() {
-        computer.unmount(LocalScriptPaths.MOUNT_PATH);
+        if (scriptMountId != null) {
+            computer.unmount(scriptMountId);
+            scriptMountId = null;
+        }
+        if (programMountId != null) {
+            computer.unmount(programMountId);
+            programMountId = null;
+        }
     }
 
     @LuaFunction(mainThread = true)
