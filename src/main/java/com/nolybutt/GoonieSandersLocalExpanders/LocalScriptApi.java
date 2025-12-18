@@ -24,7 +24,7 @@ public class LocalScriptApi implements ILuaAPI {
     public LocalScriptApi(IComputerSystem computer) {
         this.computer = computer;
         try {
-            Files.createDirectories(LocalScriptPaths.SCRIPT_DIR);
+            Files.createDirectories(LocalScriptPaths.getScriptDir());
         } catch (IOException e) {
             GoonieSandersLocalExpanders.LOGGER.error(
                 "[{}] Could not create scripts directory",
@@ -44,7 +44,7 @@ public class LocalScriptApi implements ILuaAPI {
         try {
             scriptMountId = computer.mountWritable(
                 LocalScriptPaths.SCRIPT_MOUNT_PATH,
-                new LocalScriptMount(LocalScriptPaths.SCRIPT_DIR)
+                new LocalScriptMount(LocalScriptPaths.getScriptDir())
             );
         } catch (IOException e) {
             GoonieSandersLocalExpanders.LOGGER.error(
@@ -81,7 +81,7 @@ public class LocalScriptApi implements ILuaAPI {
 
     @LuaFunction(mainThread = true)
     public final List<String> listScripts() throws LuaException {
-        try (Stream<Path> stream = Files.list(LocalScriptPaths.SCRIPT_DIR)) {
+        try (Stream<Path> stream = Files.list(LocalScriptPaths.getScriptDir())) {
             return stream
                 .filter(Files::isRegularFile)
                 .map(Path::getFileName)
@@ -109,8 +109,9 @@ public class LocalScriptApi implements ILuaAPI {
     private Path normaliseScriptPath(String name) throws LuaException {
         if (name == null || name.isBlank()) throw new LuaException("Usage: getScript(name)");
 
-        var resolved = LocalScriptPaths.SCRIPT_DIR.resolve(name).normalize();
-        if (!resolved.startsWith(LocalScriptPaths.SCRIPT_DIR)) throw new LuaException("Invalid script path");
+        var root = LocalScriptPaths.getScriptDir().toAbsolutePath().normalize();
+        var resolved = root.resolve(name).normalize();
+        if (!resolved.startsWith(root)) throw new LuaException("Invalid script path");
         return resolved;
     }
 }

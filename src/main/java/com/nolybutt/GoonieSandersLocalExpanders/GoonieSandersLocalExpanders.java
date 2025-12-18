@@ -23,7 +23,7 @@ public class GoonieSandersLocalExpanders {
     }
 
     private void installHelperIfMissing() {
-        Path helperPath = LocalScriptPaths.SCRIPT_DIR.resolve(LocalScriptPaths.DEFAULT_HELPER);
+        Path helperPath = LocalScriptPaths.getScriptDir().resolve(LocalScriptPaths.DEFAULT_HELPER);
         if (Files.exists(helperPath)) return;
 
         try (InputStream stream = GoonieSandersLocalExpanders.class.getResourceAsStream(HELPER_RESOURCE)) {
