@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,23 @@ final class LocalScriptMount implements WritableMount {
     @Override
     public SeekableByteChannel openForRead(String path) throws IOException {
         return Files.newByteChannel(resolve(path));
+    }
+
+    @Override
+    public SeekableByteChannel openForWrite(String path) throws IOException {
+        Path resolved = resolve(path);
+        Path parent = resolved.getParent();
+        if (parent != null) Files.createDirectories(parent);
+        return Files.newByteChannel(resolved, StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+    }
+
+    @Override
+    @SuppressWarnings("removal")
+    public SeekableByteChannel openForAppend(String path) throws IOException {
+        Path resolved = resolve(path);
+        Path parent = resolved.getParent();
+        if (parent != null) Files.createDirectories(parent);
+        return Files.newByteChannel(resolved, StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
     }
 
     @Override

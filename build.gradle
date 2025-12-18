@@ -1,7 +1,7 @@
 
 plugins {
     id 'java'
-    id 'net.neoforged.moddev' version '1.0.18'
+    id 'net.minecraftforge.gradle' version '6.0.46'
 }
 
 group = 'com.nolybutt.GoonieSandersLocalExpanders'
@@ -15,18 +15,51 @@ java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
 }
 
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'info'
+
+            mods {
+                gooniesanderslocalexpanders {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
 repositories {
     mavenCentral()
     maven { url "https://maven.squiddev.cc" } // CC:Tweaked
 }
 
 dependencies {
-    compileOnly("cc.tweaked:cc-tweaked-1.21.1-core-api:1.116.1")
-    compileOnly("cc.tweaked:cc-tweaked-1.21.1-forge-api:1.116.1")
+    minecraft "net.minecraftforge:forge:1.20.1-47.3.0"
+
+    compileOnly("cc.tweaked:cc-tweaked-1.20.1-core-api:1.116.2")
+    compileOnly("cc.tweaked:cc-tweaked-1.20.1-forge-api:1.116.2")
+    runtimeOnly(fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge:1.116.2"))
 }
 
-neoForge {
-    version = "21.1.62"
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+        minecraft_version: "1.20.1",
+        mod_id: "gooniesanderslocalexpanders",
+        mod_name: "Goonie Sanders Local Expanders",
+        mod_authors: "Nolynn",
+        mod_version: project.version,
+        cc_version: "1.116.2",
+        forge_version: "47.3.0",
+    ]
+
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/mods.toml']) {
+        expand replaceProperties
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {

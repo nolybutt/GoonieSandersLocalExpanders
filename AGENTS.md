@@ -1,12 +1,12 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-The NeoForge mod lives in `src/main/java/com/nolybutt/GoonieSandersLocalExpanders`, with the entrypoint `GoonieSandersLocalExpanders.java` and the ComputerCraft API surface in `LocalScriptApi.java`. Resources such as `neoforge.mods.toml`, the bundled helper (`assets/gooniesanderslocalexpanders/localscripts.lua`), the shell entry point (`assets/gooniesanderslocalexpanders/programs/goonie.lua`), and `pack.mcmeta` live under `src/main/resources`. Lua helper automation for in-game use ships from `in_game_script/`, while local ComputerCraft script payloads are stored (and generated at runtime) in `config/ccscripts/`. Keep new assets alongside their peers and avoid creating parallel package trees.
+The Forge mod lives in `src/main/java/com/nolybutt/GoonieSandersLocalExpanders`, with the entrypoint `GoonieSandersLocalExpanders.java` and the ComputerCraft API surface in `LocalScriptApi.java`. Resources such as `mods.toml`, the bundled helper (`assets/gooniesanderslocalexpanders/localscripts.lua`), the shell entry point (`assets/gooniesanderslocalexpanders/programs/goonie.lua`), and `pack.mcmeta` live under `src/main/resources`. Lua helper automation for in-game use ships from `in_game_script/`, while local ComputerCraft script payloads are stored (and generated at runtime) in `config/ccscripts/`. Keep new assets alongside their peers and avoid creating parallel package trees.
 
 ## Build, Test, and Development Commands
 Use Gradle for all lifecycle tasks. Typical flows:
 ```
-.\gradlew build         # compiles and bundles the NeoForge mod
+.\gradlew build         # compiles and bundles the Forge mod
 .\gradlew runClient     # launches a dev client with the mod loaded
 .\gradlew test          # executes any JVM-side unit tests
 ```

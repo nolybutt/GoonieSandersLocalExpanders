@@ -26,7 +26,11 @@ public class LocalScriptApi implements ILuaAPI {
         try {
             Files.createDirectories(LocalScriptPaths.SCRIPT_DIR);
         } catch (IOException e) {
-            System.err.println("[GoonieSandersLocalExpanders] Could not create scripts directory: " + e.getMessage());
+            GoonieSandersLocalExpanders.LOGGER.error(
+                "[{}] Could not create scripts directory",
+                GoonieSandersLocalExpanders.MOD_ID,
+                e
+            );
         }
     }
 
@@ -43,7 +47,11 @@ public class LocalScriptApi implements ILuaAPI {
                 new LocalScriptMount(LocalScriptPaths.SCRIPT_DIR)
             );
         } catch (IOException e) {
-            System.err.println("[GoonieSandersLocalExpanders] Failed to mount local scripts: " + e.getMessage());
+            GoonieSandersLocalExpanders.LOGGER.error(
+                "[{}] Failed to mount local scripts",
+                GoonieSandersLocalExpanders.MOD_ID,
+                e
+            );
         }
 
         var server = computer.getLevel().getServer();

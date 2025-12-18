@@ -11,7 +11,7 @@ Brothers, sisters, and assorted goons: for far too long the working computers of
 
 ## Installation (Because revolutions need logistics)
 1. Build or grab the mod jar (`.\gradlew build` if you’re the DIY type).
-2. Toss the jar into your NeoForge mods folder.
+2. Toss the jar into your Forge mods folder.
 3. Drop any Lua masterpieces into `config/ccscripts/`. That directory is the beating heart of the operation.
 
 ## How To Use It On The Floor
